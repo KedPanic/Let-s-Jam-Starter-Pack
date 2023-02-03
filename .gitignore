@@ -1,0 +1,6 @@
+.idea
+deploy/*
+*.AppImage
+*-source.zip
+*-game.zip
+
