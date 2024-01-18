@@ -5,7 +5,6 @@
 </p>
 
 Build on top of [**Love2D**][Love2D] to speed up the game development for the game jam.<br/> 
-It is heavily based on the previous project  https://superneon.itch.io/uau
 
 ## Features
 - Integrates with [**Tiled map editor**][Tiled] through the [**Simple Tiled Implementation**][STI] library
@@ -22,6 +21,10 @@ This code is licensed under the [**MIT License**][MIT]. Check out the LICENSE fi
 ## Trusted
 Many of the world's most famous game companies find Let's Jam Starter Pack make them more creative and effective.
 <p align="center"><img src="docs/michelreview.png" alt="Real Review, 100% Not Fake" /></p>
+
+## Games
+- https://superneon.itch.io/uau
+- https://superneon.itch.io/seed-meilleur
 
 
 [Love2D]: https://love2d.org
