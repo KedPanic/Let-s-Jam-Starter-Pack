@@ -1,4 +1,4 @@
-require "letsjam/world"
+require "letsjam/World"
 
 -- camera position
 local camera =

@@ -91,8 +91,14 @@ function Map:init(path, plugins, ox, oy)
 	-- Set tiles, images
 	local gid = 1
 	for i, tileset in ipairs(self.tilesets) do
-		assert(not tileset.filename, "STI does not support external Tilesets.\nYou need to embed all Tilesets.")
-
+		
+		if tileset.filename ~= nil then
+			local firstgid = tileset.firstgid
+			tileset = love.filesystem.load(string.match(path, "(.*/)")..tileset.exportfilename)()
+			tileset.firstgid = firstgid
+			self.tilesets[i] = tileset
+		end
+		
         if tileset.image then
             -- Cache images
             if lg.isCreated then

@@ -1,4 +1,4 @@
-﻿--[[
+--[[
 The sound emitter 
 ]]
 SoundEmitter = {}
@@ -8,28 +8,14 @@ function SoundEmitter:new(audioData, x, y)
     local soundEmitter = { }
     setmetatable(soundEmitter, {__index = SoundEmitter})
 
-    soundEmitter.type = audioData
-    soundEmitter.source = nil
-    
-    -- allocate new source
-    if type(audioData.data) ~="table" then
-        soundEmitter.source = love.audio.newSource(audioData.data, audioData.type)
-    else
-        soundEmitter.source = love.audio.newSource(audioData.data[love.math.random(#audioData.data)], audioData.type)
-    end
-
-    -- setup
-    soundEmitter:setVolume(audioData.volume)
-    soundEmitter:setPitch(audioData.pitch)
-    soundEmitter.source:setLooping(audioData.loop)
-    if audioData.is3D == true then
-        soundEmitter:setAttenuation(audioData.att_min, audioData.att_max)
+    if audioData ~= nil then
+        soundEmitter:setAudioData(audioData)
         soundEmitter:setPosition(x, y)
-    end
 
-    -- start playing the source if requested.
-    if audioData.autoplay == true then
-        soundEmitter.source:play()
+        -- start playing the source if requested.
+        if audioData.autoplay == true then
+            soundEmitter.source:play()
+        end
     end
 
     -- register the emitter.
@@ -40,9 +26,44 @@ end
 
 -- Destructor.
 function SoundEmitter:release()
-    self.source:stop()
-    self.source:release()
+    if self.source ~= nil then
+        self.source:stop()
+        self.source:release()
+    end
+    
     self.source = nil
+end
+
+function SoundEmitter:setAudioData(audioData)
+    self.type = audioData
+    self.source = nil
+
+    -- allocate new source
+    if type(audioData.data) ~="table" then
+        self.source = love.audio.newSource(audioData.data, audioData.type)
+    else
+        self.source = love.audio.newSource(audioData.data[love.math.random(#audioData.data)], audioData.type)
+    end
+
+    -- setup
+    self:setVolume(audioData.volume)
+    self:setPitch(audioData.pitch)
+    self.source:setLooping(audioData.loop)
+    if audioData.is3D == true then
+        self:setAttenuation(audioData.att_min, audioData.att_max)
+    end
+end
+
+function SoundEmitter:play(audioData)
+    if audioData ~= nil then
+        self:setAudioData(audioData)
+    end
+    
+    self.source:play()
+end
+
+function SoundEmitter:stop()
+    self.source:stop()
 end
 
 function SoundEmitter:setVolume(volume)
@@ -54,6 +75,10 @@ function SoundEmitter:setPitch(pitch)
 end
 
 function SoundEmitter:setPosition(x, y)
+    if self.source == nil then
+        return
+    end
+    
     if self.type.is3D == true then
         self.source:setPosition(x, y, 0)
     end
@@ -71,4 +96,8 @@ end
 --
 function SoundEmitter:setAttenuation(att_min, att_max)
     self.source:setAttenuationDistances(att_min, att_max)
+end
+
+function SoundEmitter:isPlaying()
+    return self.source ~= nil and self.source:isPlaying()
 end

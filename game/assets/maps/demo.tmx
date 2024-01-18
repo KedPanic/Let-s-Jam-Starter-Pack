@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="8" tileheight="8" infinite="0" nextlayerid="8" nextobjectid="24">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="8" tileheight="8" infinite="0" nextlayerid="8" nextobjectid="25">
  <editorsettings>
   <export target="demo.lua" format="lua"/>
  </editorsettings>
@@ -338,6 +338,7 @@
     <property name="damage" type="int" value="10000"/>
    </properties>
   </object>
+  <object id="24" name="sfx_ovulo_loop" class="sound" x="91.0833" y="101.917"/>
  </objectgroup>
  <layer id="4" name="Foreground" width="100" height="100">
   <properties>

@@ -13,11 +13,8 @@ It is heavily based on the previous project  https://superneon.itch.io/uau
 - Open-source and customizable to meet your specific game jam development needs
 
 ## How To
-###### Aseprite export
-![Aseprite export](docs/aseprite_export.png)
 
-###### Build & Run for the web
-https://schellingb.github.io/LoveWebBuilder/
+See the [documentation](DOCS.md)
 
 ## License
 This code is licensed under the [**MIT License**][MIT]. Check out the LICENSE file for more information.

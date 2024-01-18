@@ -10,7 +10,7 @@ return {
   tilewidth = 8,
   tileheight = 8,
   nextlayerid = 8,
-  nextobjectid = 24,
+  nextobjectid = 25,
   properties = {},
   tilesets = {
     {
@@ -1010,6 +1010,19 @@ return {
           properties = {
             ["damage"] = 10000
           }
+        },
+        {
+          id = 24,
+          name = "sfx_ovulo_loop",
+          class = "sound",
+          shape = "rectangle",
+          x = 91.0833,
+          y = 101.917,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     },

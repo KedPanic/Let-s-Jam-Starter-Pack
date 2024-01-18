@@ -1,4 +1,4 @@
-require "audiobanks"
+require "AudioBanks"
 
 --[[
 Audio Room.

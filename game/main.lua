@@ -52,7 +52,7 @@ canvas = nil
 require "AudioBanks"
 require "GameState_Menu"
 require "GameState_Game"
-require "gamestate_gameover"
+require "GameState_GameOver"
 require "GameState_Credits"
 require "sprites"
 

@@ -32,7 +32,7 @@ return {
 										name       = object.name,
 										type       = object.type,
 										x          = instance.x + map.offsetx + object.x,
-										y          = instance.y + map.offsety + object.y,
+										y          = math.floor(instance.y + map.offsety + object.y),
 										width      = object.width,
 										height     = object.height,
 										layer      = instance.layer,
